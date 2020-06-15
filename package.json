@@ -16,10 +16,11 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "cy:open": "cypress open",
+    "dev": "start-test 3000 cy:open",
+    "start": "react-scripts -r @cypress/instrument-cra start",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,8 +38,20 @@
     ]
   },
   "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "^2.1.2",
     "@cypress/code-coverage": "^3.8.1",
     "@cypress/instrument-cra": "^1.1.1",
-    "cypress": "^4.7.0"
+    "babel-plugin-istanbul": "^6.0.0",
+    "cypress": "^4.7.0",
+    "start-server-and-test": "^1.11.0",
+    "ts-loader": "^7.0.5"
+  },
+  "nyc": {
+    "report-dir": "cypress-coverage",
+    "reporter": [
+      "text",
+      "json",
+      "html"
+    ]
   }
 }
